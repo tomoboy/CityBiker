@@ -18,4 +18,4 @@ Then __npm start__ to start running the server.
 
 Api keys must be provided to _services/entur.js_, _services/citybikes.js_ and _client/src/MapContainer.js_
 
-See the [website](https://tomolavb.at.ifi.uio.no)
+See the [website](https://folk.uio.no/tomolavb)
