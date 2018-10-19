@@ -1,7 +1,7 @@
 const geolib = require('geolib');
 const _ = require('lodash');
 const CITYBIKE_API_TOKEN = '';
-const API_WEBSITE = 'https://developer.oslobysykkel.no/api'
+//const API_WEBSITE = 'https://developer.oslobysykkel.no/api'
 const request = require('request-promise');
 
 function getRequest(url){

@@ -49,12 +49,6 @@ export class MapContainer extends React.Component{
         this.props.onClick(pos)
     }
     render() {
-        const style = {
-            width: '100vw',
-            height: '75vh',
-            'marginLeft': 'auto',
-            'marginRight': 'auto'
-        }
         return (
             <Map
                 key={this.state.lat + this.state.lng}
@@ -63,7 +57,12 @@ export class MapContainer extends React.Component{
                 center={this.state.pos}
                 onClick ={this.onMapClick}
                 initialCenter={this.state.initialLoc}
-                style={style}
+                style={{
+                    width: '100vw',
+                    height: '75vh',
+                    'marginLeft': 'auto',
+                    'marginRight': 'auto'
+                }}
             >
                 <Marker onClick={this.onMarkerClick}
                         title = {'This is you'}

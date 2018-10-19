@@ -1,9 +1,9 @@
-var {GraphQLClient} = require('graphql-request')
+var {GraphQLClient} = require('graphql-request');
 const _ = require('lodash');
 const geolib = require('geolib');
 
 const API_CLIENTNAME = '';
-const API_WEBSITE = 'https://www.entur.org/dev/';
+//const API_WEBSITE = 'https://www.entur.org/dev/';
 
 function getQuery(userLoc, margin) {
     let minLat = userLoc.lat - margin;
@@ -26,11 +26,10 @@ function getQuery(userLoc, margin) {
           }
         }
       }
-      }`
+    }`
 }
 
 function getStops(userLoc){
-    console.log(userLoc)
      const client = new GraphQLClient(
          'https://api.entur.org/journeyplanner/2.0/index/graphql', {
              headers: {
@@ -44,13 +43,11 @@ function getClosestStops(userLoc) {
     const distance = stop => geolib.getDistance(
         _.pick(stop, ['latitude', 'longitude']),
         {
-        latitude: userLoc.lat,
-        longitude: userLoc.lng
-    });
+            latitude: userLoc.lat,
+            longitude: userLoc.lng
+        }
+    );
     return getStops(userLoc).then(({stopPlacesByBbox}) => {
-        console.log('RESPONSE');
-        console.log(stopPlacesByBbox);
-
         return stopPlacesByBbox
             .filter(stop => stop.estimatedCalls.length > 0)
             .map(stop => {
